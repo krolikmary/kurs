@@ -200,11 +200,25 @@ function showRes() {
     title.textContent = `Ваш результат: ${userScore}`;
  
     const form = document.createElement('form');
-    const button = document.createElement('button');
-    button.className = 'button';
-    button.type = 'submit';
-    button.textContent = 'ещё раз';
-    form.appendChild(button);
+
+    if (userScore >= 5 && level != 3) {
+        const nextLevelButton = document.createElement('button');
+        nextLevelButton.className = 'button';
+        nextLevelButton.type = 'button';  
+        nextLevelButton.textContent = 'Следующий уровень';
+        nextLevelButton.addEventListener('click', function() {
+          level += 1;
+        });
+        form.appendChild(nextLevelButton);
+    }else {
+        const playAgainButton = document.createElement('button');
+        playAgainButton.className = 'button';
+        playAgainButton.type = 'submit';
+        playAgainButton.textContent = 'Ещё раз';
+        form.appendChild(playAgainButton);
+    }
+    
+    
  
     wrapRes.appendChild(title);
     wrapRes.appendChild(form);
