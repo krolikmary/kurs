@@ -60,7 +60,7 @@ function level_selection(allLevel){
         let scores = String(localStorage.getItem(userInfo.name) || 0);
         scores = scores.split(',');
         for (let i = 0; i < scores.length; i++){
-            if (+scores[i] >= 10 && i < 2) {
+            if (+scores[i] >= 5 && i < 2) {
                 let item = document.querySelector('.level_selection').children[i+1];
                 if (item.classList.contains('locked')){ 
                     item.classList.remove('locked');
